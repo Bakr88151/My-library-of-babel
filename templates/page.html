@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/page.css') }}">
+    <title>page {{ id }}</title>
+</head>
+<body>
+    <main>
+        <h1>Page Number: {{ id }}</h1>
+        <hr>
+        <div class="content">
+            {{ info.content }}
+        </div>
+    <small>{{ info.date }}</small>
+    </main>
+    <script>
+        // Get the URL and extract the 'q' parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryString = urlParams.get('q');
+    
+        // Get the content div
+        const contentDiv = document.querySelector('.content');
+    
+        // Highlight the substring in the content
+        if (queryString) {
+            const contentText = contentDiv.textContent;
+            const index = contentText.indexOf(queryString);
+    
+            if (index !== -1) {
+                const before = contentText.substring(0, index);
+                const match = contentText.substring(index, index + queryString.length);
+                const after = contentText.substring(index + queryString.length);
+    
+                contentDiv.innerHTML = before + '<span class="highlight">' + match + '</span>' + after;
+            }
+        }
+    </script>
+
+</body>
+</html>

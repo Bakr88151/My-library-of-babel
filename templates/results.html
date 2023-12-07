@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+    <title>results</title>
+</head>
+<body>
+    <main>
+        {% if result_len != 0 %}
+            <h1>Your Search results for '{{ q }}': </h1>
+            <div class="all_results">
+                {% for result in results %}
+                <a href="/page/{{ result.id }}?q={{ q }}">
+                    <div class="result">
+                        <h3>{{ result.id }}</h3>
+                        <div>{{ result.date }}</div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="all_results">
+                <h2 style="color: red;">
+                    No results for '{{ q }}' !!
+                </h2>
+            </div>
+        {% endif %}
+    </main>
+</body>
+</html>

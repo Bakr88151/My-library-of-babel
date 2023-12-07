@@ -1,0 +1,16 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.page{
+    width: 70%;
+    font-size: 1.3rem;
+    text-align: justify;
+}
+.search{
+    width: 400px;
+    height: 30px;
+}

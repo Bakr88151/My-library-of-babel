@@ -1,0 +1,21 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main{
+    width: 70%;
+}
+.content{
+    font-size: 1.3rem;
+    padding: 10px;
+    text-align: justify;
+}
+small{
+    right: 0;
+}
+.highlight{
+    font-weight: bold;
+    color: rgb(29, 29, 29);
+    background-color: yellow;
+}
